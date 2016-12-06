@@ -120,11 +120,11 @@
 				292FE7781DF0EBA6005431D3 /* GameScene.sks */,
 				292FE77C1DF0EBA6005431D3 /* GameScene.swift */,
 				292FE77E1DF0EBA6005431D3 /* GameViewController.swift */,
+				292FE7C71DF12519005431D3 /* Helper.swift */,
 				292FE7801DF0EBA6005431D3 /* Main.storyboard */,
 				292FE7831DF0EBA6005431D3 /* Assets.xcassets */,
 				292FE7851DF0EBA6005431D3 /* LaunchScreen.storyboard */,
 				292FE7881DF0EBA6005431D3 /* Info.plist */,
-				292FE7C71DF12519005431D3 /* Helper.swift */,
 				292FE78E1DF12512005431D3 /* Content */,
 			);
 			path = Project11;
