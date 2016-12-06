@@ -163,6 +163,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         slotGlow.run(spinForever)
     }
     
+    /// didBegin(_:) will tell us how a collision occurs
+    /// - Returns: nil
+    /// - Parameters:
+    ///   - contact: Handles how different objects collide
+    
     func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyA.node?.name == "ball" {
             collisionBetween(ball: contact.bodyA.node!, object: contact.bodyB.node!)
@@ -170,6 +175,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             collisionBetween(ball: contact.bodyB.node!, object: contact.bodyA.node!)
         }
     }
+    
+    /// collisionBetween(ball:, object:) will handle whether the ball lands in a good slot or a bad slot and updates the score accordingly
+    /// - Returns: nil
+    /// - Parameters:
+    ///   - ball: the current ball being dropped
+    ///   - object: the slot in which the ball falls into. Can be either good or bad
     
     func collisionBetween(ball: SKNode, object: SKNode) {
         if object.name == "good" {
@@ -181,7 +192,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    /// destroy(ball:) begins the particle animation when the ball collides with the slot and removes the ball from the screen
+    /// - Returns: nil
+    /// - Parameters:
+    ///   - ball: the ball that falls into one of the slots
+    
     func destroy(ball: SKNode) {
+        // The SKEmitterNode class helps us create the particle effects, which we will then position it with where the ball was.
+        if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
+            fireParticles.position = ball.position
+            addChild(fireParticles)
+        }
+        
         ball.removeFromParent()
     }
     
